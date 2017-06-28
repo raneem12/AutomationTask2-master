@@ -1,3 +1,5 @@
+package com.atypon.automationframework.drivers;
+
 public enum DriversInfo {
     CHROME {
         @Override

@@ -1,6 +1,10 @@
+package com.atypon.automationframework.drivers;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import static com.atypon.automationframework.drivers.DriversInfo.*;
 
 public class DriverManager {
     static  {
