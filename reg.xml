@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--<site>-->
+<senario>
+
+    <page name="Home Page" url="http://demo.guru99.com/">
+        <validate-text value = "Guru99 Bank"/>
+        <form name="frmLogin">
+            <param id="emailid" type="fillFromKeyboard" value="hello@example.com"/>
+        </form>
+        <notvalid-text value = "Email ID must not be blank"/>
+        <notvalid-text value = "Email ID is not valid"/>
+    </page>
+
+    <page>
+        <validate-text value="Access details to demo site"/>
+        <validate-text value="This access is valid only for 20 days."/>
+        <getText id = "//table/tbody/tr[4]/td[2]" key="userId"/>
+
+        <getText id = "//table/tbody/tr[5]/td[2]"  key="password"/>
+    </page>
+    <page url="http://demo.guru99.com/V4/index.php">
+        <form name="frmLogin">
+            <param id = "uid" type="getFromPage" value="userId"/>
+            <param id ="password" type="getFromPage" value="password"/>
+        </form>
+    </page>
+    <page>
+        <click-link name = "New Customer"/>
+    </page>
+    <page name = "Add new Customer">
+
+        <form name="addcust">
+            <param id = "name" type="fillFromKeyboard" value="raneem"/>
+            <param id ="//input[@value='f']" type="radio"/>
+            <param id = "dob" type="fillFromKeyboard" value="12021995"/>
+            <param id = "addr" type="fillFromKeyboard" value="Amman Jordan"/>
+            <param id = "city" type="fillFromKeyboard" value="Amman"/>
+            <param id = "state" type="fillFromKeyboard" value="Jordan"/>
+            <param id = "pinno" type="fillFromKeyboard" value="850345"/>
+            <param id = "telephoneno" type="fillFromKeyboard" value="4636735"/>
+            <param id = "emailid" type="fillFromKeyboard" value="hell8ooooo@example.com"/>
+            <param id = "password" type="fillFromKeyboard" value="12345678"/>
+        </form>
+        <getText id = "//table/tbody/tr[4]/td[2]"  key="customerId"/>
+        <click-link name = "New Account"/>
+    </page>
+    <page name="Add new Account">
+        <form name="form1">
+            <param id = "cusid" type="getFromPage" value="customerId"/>
+            <param id ="selaccount" type="dropdown" value="Current"/>
+            <param id = "inideposit" type="fillFromKeyboard" value="500"/>
+        </form>
+        <click-link name = "Log out"/>
+        <AcceptAlertAction/>
+    </page>
+</senario>
+
+        <!--</site>-->

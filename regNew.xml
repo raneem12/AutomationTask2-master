@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--<site>-->
+<senario>
+    <test-case name="Registration">
+        <navigate page-name="Home Page" url="http://demo.guru99.com/"/>
+        <validate-text value = "Enter your email address to get"/>
+        <form name="frmLogin">
+            <param id="emailid" type="fillFromKeyboard" value="hello@example.com"/>
+        </form>
+        <notvalid-text value = "Email ID must not be blank"/>
+        <notvalid-text value = "Email ID is not valid"/>
+        <validate-text value="Access details to demo site"/>
+        <validate-text value="This access is valid only for 20 days."/>
+        <getText id = "//table/tbody/tr[4]/td[2]" key="userId"/>
+        <getText id = "//table/tbody/tr[5]/td[2]"  key="password"/>
+    </test-case>
+
+    <test-case name="Login">
+        <goto url="http://demo.guru99.com/V4/index.php"/>
+        <validate-text value="Steps To Generate Access"/>
+        <form name="frmLogin">
+            <param id = "uid" type="getFromPage" value="userId"/>
+            <param id ="password" type="getFromPage" value="password"/>
+        </form>
+        <validate-text value="Welcome To Manager's Page of Guru99 Bank"/>
+    </test-case>
+
+    <test-case name = "Add new Customer">
+        <click-link name = "New Customer"/>
+        <validate-text value="Add New Customer"/>
+        <form name="addcust">
+            <param id = "name" type="fillFromKeyboard" value="raneem"/>
+            <param id ="//input[@value='f']" type="radio"/>
+            <param id = "dob" type="fillFromKeyboard" value="12021995"/>
+            <param id = "addr" type="fillFromKeyboard" value="Amman Jordan"/>
+            <param id = "city" type="fillFromKeyboard" value="Amman"/>
+            <param id = "state" type="fillFromKeyboard" value="Jordan"/>
+            <param id = "pinno" type="fillFromKeyboard" value="850345"/>
+            <param id = "telephoneno" type="fillFromKeyboard" value="4636735"/>
+            <param id = "emailid" type="fillFromKeyboard" value="hell8ooooo@example.com"/>
+            <param id = "password" type="fillFromKeyboard" value="12345678"/>
+        </form>
+        <validate-text value="Customer Registered Successfully!!!"/>
+        <getText id = "//table/tbody/tr[4]/td[2]"  key="customerId"/>
+    </test-case>
+
+    <test-case  name="Add new Account">
+        <click-link name = "New Account"/>
+        <form name="form1">
+            <param id = "cusid" type="getFromPage" value="customerId"/>
+            <param id ="selaccount" type="dropdown" value="Current"/>
+            <param id = "inideposit" type="fillFromKeyboard" value="500"/>
+        </form>
+    </test-case>
+
+    <test-case name="logout">
+        <click-link name = "Log out"/>
+        <AcceptAlertAction/>
+    </test-case>
+</senario>
+
+        <!--</site>-->
