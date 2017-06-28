@@ -11,7 +11,7 @@ import static sun.plugin.javascript.navig.JSType.URL;
 public class TestCase
 {
     @XmlElementRef
-    private ArrayList<Item> items ;
+    private ArrayList<Item> items = new ArrayList<Item>() ;
 
 
 
